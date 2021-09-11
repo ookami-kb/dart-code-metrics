@@ -1,6 +1,7 @@
 import '../../models/internal_resolved_unit_result.dart';
 import '../../models/issue.dart';
 import '../../models/report.dart';
+import '../../models/scoped_class_declaration.dart';
 import '../../models/scoped_function_declaration.dart';
 import '../../models/severity.dart';
 import 'pattern.dart';
@@ -21,8 +22,14 @@ abstract class ObsoletePattern extends Pattern {
     InternalResolvedUnitResult source,
     Iterable<ScopedFunctionDeclaration> functions,
     Map<String, Object> metricsConfig,
-  );
+  ) =>
+      [];
 
   @override
-  Iterable<Issue> check(InternalResolvedUnitResult source, Report report) => [];
+  Iterable<Issue> check(
+    InternalResolvedUnitResult source,
+    Map<ScopedClassDeclaration, Report> classMetrics,
+    Map<ScopedFunctionDeclaration, Report> functionMetrics,
+  ) =>
+      [];
 }
